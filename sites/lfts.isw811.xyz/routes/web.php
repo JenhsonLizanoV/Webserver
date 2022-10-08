@@ -17,10 +17,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Route::get('/home', function () {
-//     return "Hello World!"; 
-// });
+Route::get('/home', function () {
+    return "Hello World!";
+});
 
-// Route::get('/json', function () {
-//     return ["foo" => "bar"];
-// });
+Route::get('/json', function () {
+    return ["foo" => "bar"];
+});

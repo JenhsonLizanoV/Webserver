@@ -71,3 +71,16 @@ Para empezar con estos trabajos, vamos a implementar las indicaciones según el 
 - Finalmente, luego de haber validado la ruta para que encuentre el archivo html por parámetro, cambiamos los href de las etiquetas "a" que hay en los archivos html para que este las encuentre en la ruta.
 
 ![text image](./img/imagen15.png)
+
+## **Quinta Parte**
+### Restricciones de las rutas:
+
+Basados en el episodio anterior, logramos hacer que el sistema encontrara las rutas que teniamos guardadas en la carpeta posts, pero surge un problema, este problema es que la variable $slug ouede ser cualquier cosa, por consiguiente realizamos esto:
+- Luego de que cerramos todo el código de la ruta, colocaremos un where, donde validaremos que lo que obtenga de la ruta solo sean números, letras, alfanumericos, o bien uno que otro signo distintivo como un underscore.
+
+![text image](./img/imagen16.png)
+
+- Presentado lo anterior, funciona casi perfecto, el unico inconveniente es que cuando querramos entrar a los posts guardados anteriormente, nos los va a encontrar por los guiones que tienen en los nombres, ejemplo, my-first-post, por ende validaremos los guiones.
+
+![text image](./img/imagen17.png)
+

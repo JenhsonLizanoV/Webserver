@@ -84,3 +84,20 @@ Basados en el episodio anterior, logramos hacer que el sistema encontrara las ru
 
 ![text image](./img/imagen17.png)
 
+## **Sexta Parte**
+### Utilizando el almacenamiento cache para operaciones costosas:
+
+En este apartado haremos que se guarde en la cache la pagina que pasemos por parametros durante 5 segundos usando la ruta que establecimos anteriormente tal que así:
+
+![text image](./img/imagen18.png)
+
+Mostramos un mensaje con un var_dump y se ve así:
+
+![text image](./img/imagen19.png)
+
+Luego, al refrescar la pagina despues de 5 segundos, el mensaje desaparece.
+
+- Otra manera de realizar la ruta, una manera más corta:
+
+![text image](./img/imagen20.png)
+

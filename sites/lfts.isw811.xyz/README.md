@@ -1,9 +1,10 @@
 # Laravel from the scratch
+----------------------------------------------------------------
 Para empezar con estos trabajos, vamos a implementar las indicaciones según el curso de laracasts
 
 ## **Primera parte**
 ### Como una ruta carga las vistas:
-
+----------------------------------------------------------------
 - Como prueba inicial, cambiamos en texto a "strong" para que las letras cambiaran a negrita y así poder ver los cambios realizados, esto se realiza en la carpeta de views
 
 ![text image](./img/imagen1.png)
@@ -17,7 +18,7 @@ Para empezar con estos trabajos, vamos a implementar las indicaciones según el 
 
 ## **Segunda Parte**
 ### Incluyendo CSS y JavaScript:
-
+----------------------------------------------------------------
 - Para dar inicio a esta segunda parte, cambiamos la pagina "Welcome" en la carpeta de views, eliminamos todo lo que ahí aparecía y colocamos un title nuevo.
 
 ![text image](./img/imagen4.png)
@@ -32,7 +33,7 @@ Para empezar con estos trabajos, vamos a implementar las indicaciones según el 
 
 ## **Tercera Parte**
 ### Creando rutas y conectandolas:
-
+----------------------------------------------------------------
 - Para empezar con este procedimiento debemos cambiar la view de welcome por el nombre post y cambiamos algunos atributos del archivo css
 
 ![text image](./img/imagen6.png)
@@ -51,7 +52,7 @@ Para empezar con estos trabajos, vamos a implementar las indicaciones según el 
 
 ## **Cuarta Parte**
 ### Almacenando el blog como un archivo html:
-
+----------------------------------------------------------------
 - Este modulo lo comenzamos primeramente haciendo unos cambios a las rutas donde se muestra un hello world! mediante un enrutamiento diferente al que estamos acostumbrados, algo asi como enviandolos por parametros.
 
 ![text image](./img/imagen11.png)
@@ -74,7 +75,7 @@ Para empezar con estos trabajos, vamos a implementar las indicaciones según el 
 
 ## **Quinta Parte**
 ### Restricciones de las rutas:
-
+----------------------------------------------------------------
 Basados en el episodio anterior, logramos hacer que el sistema encontrara las rutas que teniamos guardadas en la carpeta posts, pero surge un problema, este problema es que la variable $slug ouede ser cualquier cosa, por consiguiente realizamos esto:
 - Luego de que cerramos todo el código de la ruta, colocaremos un where, donde validaremos que lo que obtenga de la ruta solo sean números, letras, alfanumericos, o bien uno que otro signo distintivo como un underscore.
 
@@ -86,7 +87,7 @@ Basados en el episodio anterior, logramos hacer que el sistema encontrara las ru
 
 ## **Sexta Parte**
 ### Utilizando el almacenamiento cache para operaciones costosas:
-
+----------------------------------------------------------------
 En este apartado haremos que se guarde en la cache la pagina que pasemos por parametros durante 5 segundos usando la ruta que establecimos anteriormente tal que así:
 
 ![text image](./img/imagen18.png)
@@ -137,3 +138,11 @@ y de igual manera se realizó el cambio en la ruta para que mostrara lo que quer
 Como resultado de que el sitio ya es dinámico, agregamos un archivo html nuevo llamado my-fourth-post y obtenemos como resultado: 
 
 ![text image](./img/imagen28.png)
+
+## **Octava Parte**
+### Encontrar un paquete Composer para publicar metadatos:
+---------------------------------------------------------------- 
+Para iniciar con este episodio, debemos, primeramente instalar una libreria llamada yaml.
+Importamos la libreria y con esta parseamos la ruta donde se encuentra el documento, tal que así:
+
+![text image](./img/imagen29.png)

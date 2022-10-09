@@ -146,3 +146,35 @@ Para iniciar con este episodio, debemos, primeramente instalar una libreria llam
 Importamos la libreria y con esta parseamos la ruta donde se encuentra el documento, tal que así:
 
 ![text image](./img/imagen29.png)
+
+Seguidamente generamos un arreglo en el cual incluiremos todo aquellos html que se almacenen en la ruta que estamos utilizando:
+
+![text image](./img/imagen30.png)
+
+Dentro de la clase Post, declaramos 4 variables: Titulo, Extracto, fecha y cuerpo junto a su constructor
+
+![text image](./img/imagen31.png)
+
+Luego de crear el constructor con sus respectivas variables, implementamos los cambios a la ruta y se vería algo así:
+
+![text image](./img/imagen32.png)
+
+Como se puede apreciar en la imagen adjunta, implementamos en nombre, fecha, etc... En los campos asignados para cada uno en el constructor.
+
+Una vez realizados todos estos cambios, ya tenemos más control sobre el reder de la pagina principal, implementando simplemente: 
+
+![text image](./img/imagen33.png)
+
+podremos mostrar las partes de los html, es decir, tal como se muestra en la imagen anterior, el resultado en el navegador sería el siguiente:
+
+![text image](./img/imagen34.png)
+
+Posterior a lo mostrado anteriormente, simplemente agregamos en el constructor una opción llamada slug la cual va a permitire leer mediante el metadata la página o html al que queremos acceder, luego lo direccionamos con una etiqueta "a" y queda así:
+
+![text image](./img/imagen35.png)
+
+Continuamente se realizaron cambios en el codigo de la ruta para que fuese menos extenso, luego este se agregó al metodo "all()" creado en videos anteriores y en la ruta llamamos a la clase con el metodo y da como resultado la misma imagen mostrada anteriormente.
+
+A continuación, modificaremos el método find, para que este encuentre el documento que se le está enviando por parámetro y el metodo quedaría así:
+
+![text image](./img/imagen36.png)

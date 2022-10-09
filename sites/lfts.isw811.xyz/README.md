@@ -101,3 +101,39 @@ Luego, al refrescar la pagina despues de 5 segundos, el mensaje desaparece.
 
 ![text image](./img/imagen20.png)
 
+## **Setima Parte**
+### Usar la clase del sistema de archivos para leer un directorio:
+----------------------------------------------------------------
+En este episodio nos explican que el codigo de la ruta que tenemos está bien, pero es algo desagradable, se menciona que muchas de las veces los profesionales utilizan comentarios en los metodos para saber que quieren hacer y de ahí obtienen las palabras clave o los keywords para realizar el código, tal que así:
+
+![text image](./img/imagen21.png)
+
+Ahora creamos el modelo Post con la clase denominada con el mismo nombre, dentro de esta realizaremos un método público llamado find que nos servirá para encontrar los elementos html utilizando el código que tenemos comentado en la imagen anterior con unos pequeños cambios:
+
+![text image](./img/imagen22.png)
+
+**Ahora haremos dinámico el apartado de artículos.**
+
+En la ruta de la pagina principal, cambiamos un poco el cofigo para que este mostrara los archivos de forma dinámica.
+
+![text image](./img/imagen23.png)
+
+Seguidamente, en la clase Post realizamos una función pública, donde importamos la libreria File y retornamos lo que tenga la ruta de resources en la carpeta posts.
+
+![text image](./img/imagen24.png)
+
+Al terminar con estos 2 procesos la vista quedaría algo así:
+
+![text image](./img/imagen25.png)
+
+Se le realizaron cambios al metodo "all()" para que se mostrara el contenido de la carpeta posts
+
+![text image](./img/imagen26.png)
+
+y de igual manera se realizó el cambio en la ruta para que mostrara lo que queriamos ver, lo que da como resultado: 
+
+![text image](./img/imagen27.png)
+
+Como resultado de que el sitio ya es dinámico, agregamos un archivo html nuevo llamado my-fourth-post y obtenemos como resultado: 
+
+![text image](./img/imagen28.png)

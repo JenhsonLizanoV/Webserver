@@ -48,3 +48,26 @@ Para empezar con estos trabajos, vamos a implementar las indicaciones según el 
 - Editamos los títulos para que estubieran en formato link para poder conectar pantallas o vistas entre si y hacer un poco más dinámica la interacción entre ellas.
 
 ![text image](./img/imagen10.png)
+
+## **Cuarta Parte**
+### Almacenando el blog como un archivo html:
+
+- Este modulo lo comenzamos primeramente haciendo unos cambios a las rutas donde se muestra un hello world! mediante un enrutamiento diferente al que estamos acostumbrados, algo asi como enviandolos por parametros.
+
+![text image](./img/imagen11.png)
+
+- Creamos una carpeta posts donde almacenaremos los diferentes archivos html que queramos usar en un futuro, en este caso son los post de los videos.
+
+![text image](./img/imagen12.png)
+
+- Al crear las carpetas, podemos seguir modificando la ruta para que mediante la URL reciba el nombre del post que quiero mostrar, este vaya a la carpeta que contiene el html y lo renderice en pantalla
+
+![text image](./img/imagen13.png)
+
+- Al momento de realizar el paso anterior, puede surgir el problema de que el usuario ingrese en la URL una ruta que no existe, por ejemplo, si el usuario ingresa el nombre "my-other-post" el sistema se va a dirigir a la carpeta de posts y no va a encontrar el archivo html, por ende debemos validar que si el archivo o la ruta no existe vamos a hacer un dump die y mostrar un mensaje de que la ruta no existe.
+
+![text image](./img/imagen14.png)
+
+- Finalmente, luego de haber validado la ruta para que encuentre el archivo html por parámetro, cambiamos los href de las etiquetas "a" que hay en los archivos html para que este las encuentre en la ruta.
+
+![text image](./img/imagen15.png)

@@ -178,3 +178,10 @@ Continuamente se realizaron cambios en el codigo de la ruta para que fuese menos
 A continuación, modificaremos el método find, para que este encuentre el documento que se le está enviando por parámetro y el metodo quedaría así:
 
 ![text image](./img/imagen36.png)
+
+## **Novena Parte**
+### Actualización de clasificación y almacenamiento en caché de colecciones:
+---------------------------------------------------------------- 
+Para este episodio, solo acomodamos los html con un sortBy y luego implementamos que la cache se recordara siempre, para que almacene todo lo que vayamos haciendo en nuestra página
+
+![text image](./img/imagen37.png)

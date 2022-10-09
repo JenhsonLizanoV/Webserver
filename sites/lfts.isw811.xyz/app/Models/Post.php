@@ -18,7 +18,8 @@ class Post
 
     public $slug;
 
-    public function __construct($title, $excerpt, $date, $body, $slug){
+    public function __construct($title, $excerpt, $date, $body, $slug)
+    {
         $this->title = $title;
         $this->excerpt = $excerpt;
         $this->date = $date;
@@ -26,16 +27,20 @@ class Post
         $this->slug = $slug;
     }
 
-    public static function all(){
-        return collect(File::files(resource_path("posts")))
-        ->map(fn($file) => YamlFrontMatter::parseFile($file))
-        ->map(fn($document) => new Post(
-            $document->title,
-            $document->excerpt,
-            $document->date,
-            $document->body(),
-            $document->slug
-        ));
+    public static function all()
+    {
+        return cache()->rememberForever('posts.all', function () {
+            return collect(File::files(resource_path("posts")))
+            ->map(fn ($file) => YamlFrontMatter::parseFile($file))
+            ->map(fn ($document) => new Post(
+                $document->title,
+                $document->excerpt,
+                $document->date,
+                $document->body(),
+                $document->slug
+            ))
+            ->sortBy('date');
+        });
     }
 
     public static function find($slug)

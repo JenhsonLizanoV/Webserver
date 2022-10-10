@@ -41,3 +41,7 @@ Route::get('posts/{post}', function ($slug) {
 // Route::get('/json', function () {
 //     return ["foo" => "bar"];
 // });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -119,3 +119,22 @@ Insertamos atributos en los campos de la tabla que recién creamos:
  >![text image](../img/imagen53.png)
 
 la magia ocurre.
+
+## **Quinta parte**
+### Actualizaciones elocuentes y escape de HTML:
+--------------------------------------------------------
+En este episodio vamos a ver como funciona los blogs posts cuando realizamos modificaciones en ellos.
+
+Vamos a cambiar el body de la página y lo colocamos dentro de una etiqueta *p*
+
+Ese cambio realizado es para que se respeten los margenes de diseño que le establecimos en un principio con el *css*.
+
+- Con la etiqueta *p*
+
+>![text image](../img/imagen54.png)
+
+- Si la etiqueta *p*
+
+>![text image](../img/imagen55.png)
+
+

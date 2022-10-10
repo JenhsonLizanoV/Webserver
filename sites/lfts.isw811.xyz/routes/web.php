@@ -22,16 +22,11 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('posts/{post}', function ($slug) {
-
-    //Find a post by its slug and pass it to a view called "post"
-
-    $post = Post::find($slug);
-
+Route::get('posts/{post}', function ($id) {
     return view('post', [
-        'post' => $post,
+        'post' => Post::findOrFail($id),
     ]);
-})->where('post', '[A-z_\-]+');
+});
 
 
 // Route::get('/home', function () {
@@ -41,7 +36,3 @@ Route::get('posts/{post}', function ($slug) {
 // Route::get('/json', function () {
 //     return ["foo" => "bar"];
 // });
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

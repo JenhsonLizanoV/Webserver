@@ -63,5 +63,59 @@ por último, para guardar la inserción de los datos, realizamos el siguiente co
 >**$user->save();**
 
 Acá podemos observar los datos que recién guardamos:
+
 ![text image](../img/imagen44.png)
 
+## **Cuarta parte**
+### Hacer un modelo de publicación y migración:
+--------------------------------------------------------
+En este episodio vamos a aprender como hacer un modelo de publicación y migración con Laravel.
+
+Como primera tarea, vamos a eliminar el modelo *Post* que habiamos creado en un inicio.
+
+Seguidamente vamos a crear un modelo elocuente, utilizando 2 comandos del *artisan*, dichos comandos son:
+
+>**php artisan make:migration *migration_name***
+
+Creamos la migracion:
+
+![text image](../img/imagen45.png)
+
+Luego de realizar la migracion de manera exitosa, procedemos a eliminar la carpeta de posts que teniamos en un inicio, donde se guardaban los archivos html que se mostraban en el navegador.
+Continuamente procedemos a modificar la migracion que hicimos para colocar los atributos que teniamos en los archivos html.
+
+La estructura de nuestro archivo quedaría tal que así:
+
+>![text image](../img/imagen46.png)
+
+y procedemos a realizar la migración.
+
+Así quedaría nuestra migración:
+
+>![text image](../img/imagen47.png)
+
+Procedemos a crear un modelo con el comando
+
+>**php artisan make:model *model_name***
+
+Insertamos atributos en los campos de la tabla que recién creamos:
+
+ >![text image](../img/imagen48.png)
+
+ Ahora nos dirigiremos a las rutas y vamos a cambiar los parametros que recibía:
+
+ >![text image](../img/imagen49.png)
+
+ Esto es lo que deberia mostrar nuestro navegador:
+
+ >![text image](../img/imagen50.png)
+
+ >![text image](../img/imagen51.png)
+
+ Ingresamos un nuevo registro a la base de datos, al ser una app que con anterioridad la hicimos dinámica, actualizamos el navegador y:
+
+ >![text image](../img/imagen52.png)
+
+ >![text image](../img/imagen53.png)
+
+la magia ocurre.

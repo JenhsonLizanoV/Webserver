@@ -30,3 +30,7 @@ Creamos una carpeta components para tener más orden sobre nuestro código y den
 ### Algunos ajustes y consideración:
 
 En este apartado, solo se hacen pequeños cambios a las rutas que pueden ser tomados en consideración a la hora de desarrollar código de manera profesional, así como algunas validaciones extras en diferentes partes del proyecto.
+
+[THE BASICS](../README.md)
+
+[WORKING WITH DATABASES](../entregables/databases.md)

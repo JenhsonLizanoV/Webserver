@@ -186,4 +186,4 @@ Para este episodio, solo acomodamos los html con un sortBy y luego implementamos
 
 ![text image](./img/imagen37.png)
 
-[Working with Database](./entregables/Databases.md)
+[Working with Database](./entregables/blades.md)

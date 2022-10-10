@@ -189,4 +189,50 @@ debido a todos estos cambios, ahora no visualizamos el id de cada registro, sino
 
 entonces accederemos a las paginas que antes eran html ya no por id sino por slug.
 
+## **Setima parte**
+### Tu primera relación elocuente:
+--------------------------------------------------------
+
+En este episodio vamos a aprender como realizar relaciones elocuentes dentro de nuestro proyecto de Laravel.
+
+Para empezar, vamos a aprender como fusionar un *make:model* con un *make:migration*.
+
+Lo anterior se realiza de la siguiente manera:
+
+>*php artisan make:model 'model_name' -m*
+
+y creamos un modelo junto a su migración:
+
+>![text image](../img/imagen57.png)
+
+Ahora procederemos a modificar la migración creada.
+Vamos a implementarle 2 atributos nuevos
+
+ >*$table->string('name');*
+
+ >*$table->string('slug');*
+
+ en cuanto a al archivo de Post, vamos a implementar una llave foránea, que será la que nos va a ayudar a conectar entre si estas 2 tablas.
+
+ >*$table->foreignId('category_id')*
+
+ Ingresamos datos a la base de datos, pero esta vez con la llave foranea que va a unir categorias con posts y el resutado queda tal que así:
+
+ >![text image](../img/imagen58.png)
+
+ Ahora realizado lo anterior, procedemos a ir al modelo de Post para agregar una nueva funcion llamada *category()*, donde vamos a establecer si la relación es de *uno a muchos*, de *muchos a muchos*, etc...
+
+ >*public function category(){
+        return $this->belongsTo(Category::class);
+    }*
+
+Con el comando anterior creamos una relacion elocuente entre el Post y el Category.
+
+En la página principal realizamos un cambio el cual fue usar una etiqueta *p* y establecer la direccion que se va a conectar con ambos modelos y nos da como resultado algo así:
+
+>![text image](../img/imagen59.png)
+
+
+
+
 

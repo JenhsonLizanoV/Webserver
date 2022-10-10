@@ -232,7 +232,22 @@ En la página principal realizamos un cambio el cual fue usar una etiqueta *p* y
 
 >![text image](../img/imagen59.png)
 
+## **Octava parte**
+### Mostrar todas las publicaciones asociadas con una categoría:
+--------------------------------------------------------
 
+Como bien se menciona en el subtítulo, en este episodio vamos a mostrar todas las publicaciones asociadas con una categoría.
 
+Vamos a empezar crando una ruta que nos controle el proceso de redireccionamiento de las categorias.
 
+Luego vamos al modelo de Category y creamos una funcion llamada posts y su return va a tener una relacion 
 
+Acá observamos que la relación está bien:
+
+>![text image](../img/imagen60.png)
+
+Luego de visualizar que la conexion entre ambos models fue existosa, procedemos a modificar las tags que hicimos en el episodio anterior.
+
+El resultado del proceso sería así:
+
+>![text image](../img/imagen61.png)

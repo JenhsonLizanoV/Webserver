@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Category;
 use App\Models\Post;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\File;
@@ -28,6 +29,11 @@ Route::get('posts/{post:slug}', function (Post $post) {
     ]);
 });
 
+Route::get('categories/{category:slug}', function (Category $category) {
+    return view('posts', [
+        'posts' => $category->posts
+    ]);
+});
 
 // Route::get('/home', function () {
 //     return "Hello World!";

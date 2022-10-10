@@ -165,3 +165,28 @@ Esta linea hace todo lo contrario a lo que hace el *fillable*, ya que el guarded
 
 con esta linea, la app va a guardar toda la información que le dimos, exceptuando o ignorando el título.
 
+## **Sexta parte**
+### Enlace de modelo de ruta:
+--------------------------------------------------------
+
+En este episodio vamos a ver como hacer enlaces de modelos con rutas.
+
+Vamos a crear un atributo nuevo dentro de la migracion que habiamos creado anteriormente, la que posee control sobre la tabla posts y ejecutamos el comando que nos permite refrescar todas las migraciones de la base de datos:
+
+>*php artisan migrate:fresh*
+
+Reingresamos toda la data que teniamos en un principio, luego realizamos el siguiente cambio a la ruta:
+
+>*Route::get('posts/{post:slug}', function (Post $post) {
+    return view('post', [
+        'post' => $post,
+    ]);
+});*
+
+debido a todos estos cambios, ahora no visualizamos el id de cada registro, sino que visualizamos el nombre de cada página
+
+>*http://lfts.isw811.xyz/posts/my-second-post*
+
+entonces accederemos a las paginas que antes eran html ya no por id sino por slug.
+
+

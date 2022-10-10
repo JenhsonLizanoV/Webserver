@@ -137,4 +137,31 @@ Ese cambio realizado es para que se respeten los margenes de diseño que le esta
 
 >![text image](../img/imagen55.png)
 
+## **Quinta parte**
+### 3 formas de mitigar las vulnerabilidades de asignación masiva:
+--------------------------------------------------------
+
+En este episodio vamos a ver 3 formas de mitigar vulnerabilidades de asignación masiva.
+
+Vamos a empezar creando un nuevo Post, es decir ingresar datos a la base de datos.
+
+Creando los post de manera tradicional, atributo por atributo es una manera de insertar datos pero no es muy seguro, en capitulos anteriores creamos un modelo, cual controla todo lo que corresponde a los posts, por este motivo, una manera de segura de insertar datos y evitar la masividad es controlar las variables desde ese modelo, dentro de este modelo indentificaremos cuales son las variables que queremos que tengan datos y las que no se especifiquen ahi, serán ignoradas, por ejemplo:
+
+>*protected $fillable = ['title', 'excerpt','body'];*
+
+si usamos esta linea de código, solo vamos a poder insertar datos dentro de esos campos, todo lo demás será ignorado.
+
+>![text image](../img/imagen56.png)
+
+En la imagen anterior podemos ver que los datos que ingresé fueron aceptados al momento de ingresarlos porque en el modelo realizamos el *fillable*, en caso contrario, que no se especifiquen los atributos en el modelo, no se guardarán los cambios, en este caso se mostrará un error.
+
+Otro metodo que se puede utilizar en el modelo Post, es el siguiente:
+
+>*protected $guarded = [];*
+
+Esta linea hace todo lo contrario a lo que hace el *fillable*, ya que el guarded va a ignorar lo que le digamos dentro de los corchetes, por ejemplo:
+
+>*protected $guarded = ['title'];*
+
+con esta linea, la app va a guardar toda la información que le dimos, exceptuando o ignorando el título.
 

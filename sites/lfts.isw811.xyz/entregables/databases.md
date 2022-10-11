@@ -327,3 +327,33 @@ Luego a la clase de *User* le establecemos lo siguiente:
 >***return $this->hasMany(Post::class)***
 
 Por último, vamos al blade y establecemos una etiqueta *a* pero esta vez invocando al usuario desde la base de datos.
+
+## **Undécima parte**
+### Turbo Boost With Factories:
+--------------------------------------------------------
+
+En este episodio vamos a utilizar los archivos ***Factory*** para acelear los procesos de nuestra app.
+
+Creamos un ***Factory*** para los *Post*:
+
+>***php artisan make:factory "factory_name"***
+
+Vamos a continuar trabajando con el *factory* creado, vamos a darle una serie de atributos como lo son el *title*, *excerpt* y el *body*, luego le agregamos un *user_id* tal que así:
+
+>***'user_id' => User::factory();***
+
+>***'category_id' => Category::factory();***
+
+Con esto lo que estamos haciendo es quecada vez que creemos un post nuevo, este se encargue de crearme un usuario y una categoria por cada post creado.
+
+Creamos un ***CategoryFactory*** y le damos las credenciales que corresponden, luego agregamos el *slug* al ***PostFactory***
+
+Seguidamente vamos al los *seeders*, comentamos lo que teniamos del capitulo anterior y ingresamos lo siguiente:
+
+>***$user = User::factory()->create();***
+
+>***Post::factory()->create();***
+
+de esta manera con la primera linea de codigo podemos crear un usuario y dentro de los *( )* podremos colocar el nombre que queramos, este solo modificará el campo name de la base de datos en la tabla *users* y todos los demás campos de esa tabla serán datos randoms.
+
+Luego en el ***create()*** de *Post* le asignaremos el id del usuario que creamos.

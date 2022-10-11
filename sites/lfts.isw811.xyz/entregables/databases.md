@@ -357,3 +357,50 @@ Seguidamente vamos al los *seeders*, comentamos lo que teniamos del capitulo ant
 de esta manera con la primera linea de codigo podemos crear un usuario y dentro de los *( )* podremos colocar el nombre que queramos, este solo modificará el campo name de la base de datos en la tabla *users* y todos los demás campos de esa tabla serán datos randoms.
 
 Luego en el ***create()*** de *Post* le asignaremos el id del usuario que creamos.
+
+## **Duodécima parte**
+### Ver todos los Posts por Autor:
+--------------------------------------------------------
+
+En este episodio vamos a aprender como mostrar los posts realizados por usuarios registrados,
+al momento de dar click en el usuario, este nos muestre todos los posts que están registrados con ese usuario.
+
+Primeramente solucionaremos el problema de que cuando agregamos un nuevo post, este se muestra al final y no al principio de la página.
+
+Nos dirigimos al archivo de rutas y establecemos lo siguiente:
+
+>***''posts' => Post::latest()->with('category', 'author')->get()***
+
+Ahora para términos más profesionales, vamos a cambiar el método user que está en el modelo *Post* y lo vamos a llamar ***author***
+y como segundo parámetro en el *belongsTo()* le vamos a dar el nombre de la llave foránea que vamos a utilizar, ejemplo:
+
+>***return $this->belongsTo(User::class, 'user_id');***
+
+Con todos los cambios realizados anteriormente, si utilizamos el clockwork veremos que no realizamos consultas innecesarias:
+
+>![text image](../img/imagen64.png)
+
+Ahora creamos una ruta nueva donde se nos muestre los posts leidos por el usuario:
+
+>***Route::get('authors/{author}', function (User $author) {<br>
+    return view('posts', [<br>
+        'posts' => $author->posts<br>
+    ]);<br>
+});***
+
+cambiamos el *href* de la etiqueta *a* para que se nos aplique el cambio realizado en el comentario previo a este.
+
+Ahora para concluir con este capítulo, en la ruta se nos muestra el id del usuario al que estamos accediendo para ver los *Posts* leidos por el mismo, entonces vamos a hacer que no se muestre el id sino que se muestre un ***username***.
+
+En la migración donde creamos la tabla de usuarios agregamos lo siguiente:
+
+>***$table->string('username')->unique();***
+
+luego nos vamos a el *UserFactory* e incluimos el username.
+ 
+ >***'username' => $this->faker->unique()->userName()***
+
+refrescamos las migraciones añadiendo un *--seed*
+cambiamos ***{{ $post->author->id }}*** por ***{{ $post->author->username }}***
+ 
+agregamos el parametro ***username*** a la ruta que realizamos anteriormente y listo.

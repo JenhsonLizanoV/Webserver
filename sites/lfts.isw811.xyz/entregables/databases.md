@@ -276,3 +276,54 @@ y tenemos como resultado lo siguiente:
 
 >![text image](../img/imagen63.png)
 
+## **Décima parte**
+### Enviando tiempos de guardado a la base de datos:
+--------------------------------------------------------
+
+En este episodio, vamos primeramente a hacer que se muestre el usuario en pantalla con su respectiva categoria.
+
+Primeramente vamos a ir a los campos de la tabla post que se encuentran en la migración que habiamos realizado en episodios pasados y vamos a agregar lo siguiente:
+
+>*$table->foreignId('user_id')*
+
+Con el fin de obtener el id de cada usuario registrado con su respectiva categoria.
+
+Seguidamente para aplicar los cambios haremos el comando que ya sabemos:
+
+>*php artisan migrate:fresh*
+
+Una vez que refrescamos las migraciones con sus respectivos cambios perderemos todos los datos que teniamos en un principio en la base de datos.
+Para evitar tener que estar realizando un procedimento tan largo como lo es insertar datos vamos a utilizar los seeder que nos propicia el mismo Laravel.
+
+Para ello vamos a utilizar:
+
+>*php artisan db:seed*
+
+una vez aplicado, vamos a encontrar datos de prueba en las tabla especificada.
+
+En seeder vamos a realizar unos pequeños cambios, ya que necesitamos establecer una categoria al usuario. Hcemos lo siguiente:
+
+>*$user = User::factory()->create();*
+
+para crear un único usuario, luego creamos nuestras cateogirias:
+
+>*Category::create([ <br>
+            'name' => 'category_name', <br> 
+            'slug' => 'category_slug', <br>
+        ]);*
+
+este proceso lo haremos la cantidad de veces que lo necesitemos, de momento, hay que resaltar que este metodo es especifico de un ambiente de desarrollo local.
+
+Una vez implementado el comando anterior, vamos a dirigirnos a la migración de las categorias y le vamos a dar un ***unique()*** y en los seeder vamos a implementar un ***truncate()*** para que no se me clonen los datos en la base de datos.
+
+Vamos a implementar lo mismo para los post, vamos a asignar una variable a las categorias y junto a las llaves foraneas las vamos a incluir dentro del arreglo donde se crean los *Post* para crear las relaciones.
+
+Al finalizar vamos a la clase Post y realizamos una función pública que permita controlar los *Users* y le implementamos un 
+
+>***return $this->belongsTo(User::class)***
+
+Luego a la clase de *User* le establecemos lo siguiente:
+
+>***return $this->hasMany(Post::class)***
+
+Por último, vamos al blade y establecemos una etiqueta *a* pero esta vez invocando al usuario desde la base de datos.

@@ -404,3 +404,24 @@ refrescamos las migraciones añadiendo un *--seed*
 cambiamos ***{{ $post->author->id }}*** por ***{{ $post->author->username }}***
  
 agregamos el parametro ***username*** a la ruta que realizamos anteriormente y listo.
+
+## **Décimo tercera parte**
+### Relaciones de carga ansiosa en un modelo existente:
+--------------------------------------------------------
+
+En este episodio vamos a aprender coo evitar consultas ansiosas al momento de trabajar con *posts* dentro de una misma categoría, vamos a optimizar las consultas.
+
+Cambiamos estas 2 lineas de código en las rutas:
+
+>***'posts' => $category->posts->load(['category', 'author'])***
+>***'posts' => $author->posts->load(['category', 'author'])***
+
+con este cambio, hacemos que no se realicen consultas de más al evaluar una sola categoría.
+
+Para que todas las consultas queden mejor optimizadas, vamos a dirigirnos a la clase *Post* y vamos a agregar:
+
+>***protected $with = ['category', 'author'];***
+
+y eliminamos los cambios que habiamos dejado a las rutas y listo, hemos optimizado las consultas que se realizan a la base de datos.
+
+>![text image](../img/imagen65.png)

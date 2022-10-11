@@ -251,3 +251,28 @@ Luego de visualizar que la conexion entre ambos models fue existosa, procedemos 
 El resultado del proceso sería así:
 
 >![text image](../img/imagen61.png)
+
+## **Novena parte**
+### Mecanismo de relojería y el problema N+1:
+--------------------------------------------------------
+
+En este episodio resolveremos algunos problemas que se presentan del episodio anterior y vamos a estudiar el mecanísmo de relojería
+
+El problema que se presenta del episodio anterior es que por cada consulta que hagamos a la base de datos el sistema va a generar consultas la cantidad de indormacion que esté guardada en la base de datos, es decir, si tengo 3 Posts registrados en mi base de datos, se van a generar 3 consultas, 1 por cada item.
+
+Para evitar este problema vamos a instalar el Clockwork con el siguiente comando:
+
+>*composer require itsgoingd/clockwork*
+
+Aplicamos los cambios y descargamos la extension para nuestro navegador y queda así:
+
+>![text image](../img/imagen62.png)
+
+Aplicamos la siguiente linea a la ruta principal
+
+>*'posts' => Post::with('category')->get()*
+
+y tenemos como resultado lo siguiente:
+
+>![text image](../img/imagen63.png)
+

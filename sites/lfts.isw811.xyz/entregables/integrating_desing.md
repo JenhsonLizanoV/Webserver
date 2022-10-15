@@ -36,3 +36,16 @@ Luego de haber superado el capítulo 1 del episodio 5, procedimos a modificar al
 
 ![text image](../img/imagen66.png)
 
+--------------------------------------------------------
+
+## **Tercera parte**
+### Convirtiendo the blog post page:
+--------------------------------------------------------
+
+En este episodio vamos a trabajar con el archivo *post.blade.php*
+
+En este episodio simplemente hicimos el archivo *post.blade.php* dinámico, cambiando los textos quemados por la información que tenemos guardado en base de datos.
+
+- [Archivo necesario para el inicio del capítulo]("https://github.com/laracasts/Laravel-From-Scratch-HTML-CSS/blob/main/post.html")
+
+También para hacer más dinámico el código, creamos un archivo *category-button.blade.php* el cual almacena las categorias

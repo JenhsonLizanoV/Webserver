@@ -16,3 +16,23 @@ Primeramente descargamos el archivo que nos deja el guia en su repositorio de **
 Luego de obtener los recursos necesarios como lo fue el *index.html* y la carpeta *images* procedemos a copiar y pegar la carpeta *images* en el folder *public* de nuestro proyecto, luego en el archivo que está en la carpeta *components* llamado *layout.blade.php* tomamos la info que se nos da en el repositorio y procedemos a copiar y pegar esa info en el archivo *layout.blade.php*.
 
 Seguidamente tomamos el *body* de esa copia que realizamos y lo reemplazamos la información que habia en nuestro archivo de *posts.blade.php*, luego de haber realizado esto, separamos algunos articulos en carpetas distintas para que el documento de *posts* se redujera lo máximo posible y de esa manera poder tener un mejor orden de los archivos.
+
+--------------------------------------------------------
+
+## **Segunda parte**
+### Componentes de las páginas y rejillas CSS:
+--------------------------------------------------------
+
+En este capítulo vamos a trabajar y aprender acerca de los componentes de los blades y las rejillas del CSS.
+
+Luego de haber superado el capítulo 1 del episodio 5, procedimos a modificar algunos detalles del codigo como por ejemplo:
+
+* Procedimos a crear algunos archivos *components* nuevos para tener un mayor orden y control de estos.
+* Establecimos margenes en los encabezados de cada *post* creado.
+* Solucionamos un error el cual si no habian registros de *posts* el sistema se caía y otro error que cuando solo habia un *post*, este cargaba aun así las otras secciones pero esta vez vacías.
+* Los títulos, y demás elementos que conforman la app en cuanto a los *posts* se refiere, son los que tenemos guardados en la base de datos que hicimos en capítulos anteriores y no los predeterminados por el repositorio que nos brindó el guía.
+
+***Resultado de lo anterior mencionado***
+
+![text image](../img/imagen66.png)
+

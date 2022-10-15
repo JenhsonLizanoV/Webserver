@@ -6,7 +6,7 @@ En esta sección trabajaremos integración de diseño a nuestra app
 
 ## **Primera parte**
 ### Convirtiendo el html y el css a Página:
-
+--------------------------------------------------------
 En este capítulo, vamos a implementar el html y el css como una página de estilo profesional
 
 Primeramente descargamos el archivo que nos deja el guia en su repositorio de ***GitHub***

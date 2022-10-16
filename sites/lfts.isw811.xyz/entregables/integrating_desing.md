@@ -106,3 +106,5 @@ Para eso agregamos lo siguiente:
 que se encuentra dentro del archivo *"dropdown.blade.php"*
 
 Luego nos dirigimos al *"_post-header.blade.php"* para hacer una limpieza del mismo quitando partes inncesarias.
+
+Por último generamos unos pequeños cambios a los párrafos que se extraen en la base de datos

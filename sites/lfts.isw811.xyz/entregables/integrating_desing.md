@@ -72,4 +72,20 @@ En este episodio tabajamos en crear un Dropdown de manera que este fuese dinámi
 
 >![text image](../img/imagen68.png)
 
+--------------------------------------------------------
 
+## **Quinta parte**
+### Como extraer un Dropdown de un componente blade:
+--------------------------------------------------------
+
+En este episodio vamos a seguir trabajando con el dropdown, esta vez creandolo en un vlade.
+
+Creamos un *dropdown.blade.php* en la carpeta *components*, extraemos todo lo que trabajamos en el episodio anterior.
+
+Pasamos los *link* del dropdown al archivo *_post-header.blade.php* y en el archivo que creamos nuevo *"dropdown.blade.php"* agregamos la etiqueta "{{ $slot }}".
+Los componetes tipo *trigger* los cortamos y en el archivo *dropdown.blade.php* creamos una etiqueta **div** con el controlador del boton *@click* y dentro de esta seteamos *{{ $trigger }}*.
+En el archivo *_post-header.blade.php* creamos una etiqueta *slot* y dentro de esta vamos a colocar el código del trigger que teniamos en *"dropdown.blade.php"*.
+Creamos un *dropdown-item.blade.php* para no tener que repetir el css en cada dropdown que hagamos.
+Establecemos una condición que determine si el dropdown está activo o no.
+Damos nombres a las rutas, con el fin de optimizar el proceso que realiza el dropdown y acortar un poco el código, para que así al momento de acceder a las categorias desde el navegador, este los convalide.
+Modificamos un poco el algoritmo para el item que tiene todo dropdown y hacer lo mismo que hicimos anteriormente, colocarlo en un blade aparte y mandarlo a llamar desde la pagina los renderiza.

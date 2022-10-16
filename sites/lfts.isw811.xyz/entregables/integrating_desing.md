@@ -89,3 +89,20 @@ Creamos un *dropdown-item.blade.php* para no tener que repetir el css en cada dr
 Establecemos una condición que determine si el dropdown está activo o no.
 Damos nombres a las rutas, con el fin de optimizar el proceso que realiza el dropdown y acortar un poco el código, para que así al momento de acceder a las categorias desde el navegador, este los convalide.
 Modificamos un poco el algoritmo para el item que tiene todo dropdown y hacer lo mismo que hicimos anteriormente, colocarlo en un blade aparte y mandarlo a llamar desde la pagina los renderiza.
+
+--------------------------------------------------------
+
+## **Sexta parte**
+### Ajustes rápidos y limpieza del código:
+--------------------------------------------------------
+
+En este episodio seguiremos trabajando en ajustes que se son necesarios en un dropdown.
+
+En caso de tener una cantidad extensa de categorias, el dropdown de las mismas va a extenderse muchísimo, para eso necesitamos establecerle un máximo de extensión por la pantalla.
+Para eso agregamos lo siguiente:
+
+> *class="py-2 absolute bg-gray-100 mt-2 rounded-xl w-full z-50 overflow-auto amx-h-52"*
+
+que se encuentra dentro del archivo *"dropdown.blade.php"*
+
+Luego nos dirigimos al *"_post-header.blade.php"* para hacer una limpieza del mismo quitando partes inncesarias.

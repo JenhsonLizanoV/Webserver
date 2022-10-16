@@ -51,3 +51,25 @@ Al realizar estos cambios, de nuevo tendremos el problema de que no se va a most
 >***'currentCategory' => Category::firstWhere('slug', request('category'))***
 
 al componente del dropdown que creamos al inicio y listo.
+
+--------------------------------------------------------
+
+## **Tercera parte**
+### Filtro por autor:
+--------------------------------------------------------
+
+Vamos a realizar un filtro por autores.
+
+Nos dirigimos al archivo *post-card.blade.php* y donde tenemos el nombre del autor prodecedemos a establecerlo como un elemento clickeable.
+En la ruta agregamos un *.index* para que el render nos reconozca la página, ya que en el capitulo anterior para limpiar un poco el código metimos las vistas principales en una carpeta y les cambiamos el nombre.
+Consiguientemente vamos al modelo *Post* y hacemos lo siguiente:
+
+> ![text image](../img/imagen69.png)
+
+luego nos dirigimos al controlador de los posts, en el request agregamos *author*, probamos y:
+
+> ![text image](../img/imagen70.png)
+
+> **Importante:** Podemos combinar los métodos de filtrado, es decir, podemos clickear en un autor, luego dentro de eso podemos realizar búsqueda de palabras, etc...
+
+Como ya sabemos, al agregar: ***"/?author={{ $post->author->username }}"*** a la ruta de cada pantalla podremos eliminar la ruta que utilizabamos para eso.

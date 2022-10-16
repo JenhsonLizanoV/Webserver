@@ -34,3 +34,20 @@ Entonces, una vez duplicado el código lo vamos a modificar, de manera que al re
         $query->wherehas('category', fn($query ) => $query->where('slug', $category)));***
 
 En el *PostController* agregramos el *currentCategory* para que basado en la programación que hicimos en anteriores videos, este cargue la categoría actual en el dropdown, y la ruta que teniamos anteriormente la vamos a eliminar porque ya no será necesaria.
+
+--------------------------------------------------------
+
+## **Segunda parte**
+### Extreyendo una categoria del la pagina con el componente dropdown:
+--------------------------------------------------------
+
+Vamos a cambiar un poco el *_posts-header.blade.php*.
+
+En el blade mencionado, vamos a cortar el dropdown que tenemos ahí y vamos a crear un algoritmo nuevo.
+Creamos un nuevo componente llamado *CategoryDropdown* que va a tener el archivo dropdown que cortamos en el *_posts-header.blade.php*.
+El archivo creado retorna una vista, a esa vista le añadimos todas las categorias que traermos de la base de datos. Como realizamos este cambio, ya no necesitamos más pasarle las categorias por rutas a los objetos del proyecto, por ende esas referencias las podemos eliminar de las rutas y del controlador.
+Al realizar estos cambios, de nuevo tendremos el problema de que no se va a mostrar la categoria en la que estamos sistuados en la página, para resolverlo solamente movemos:
+
+>***'currentCategory' => Category::firstWhere('slug', request('category'))***
+
+al componente del dropdown que creamos al inicio y listo.

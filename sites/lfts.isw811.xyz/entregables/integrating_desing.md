@@ -49,3 +49,27 @@ En este episodio simplemente hicimos el archivo *post.blade.php* dinámico, camb
 - [Archivo necesario para el inicio del capítulo]("https://github.com/laracasts/Laravel-From-Scratch-HTML-CSS/blob/main/post.html")
 
 También para hacer más dinámico el código, creamos un archivo *category-button.blade.php* el cual almacena las categorias
+
+--------------------------------------------------------
+
+## **Cuarta parte**
+### Un pequeño Dropdown con JavaScript:
+--------------------------------------------------------
+
+En este episodio vamos a crear un pequeño dropdown con JavaScript.
+
+En este episodio tabajamos en crear un Dropdown de manera que este fuese dinámico, y bonito, para crearlo se siguieron una serie de pasos los cuales nos llevaron a completar la tarea.
+
+- Primeramente, obtuvimos las categorias de la base de datos, para eso tuvimos que modificar las rutas y obtener las categorias desde ahí, ejemplo:
+
+> ***'categories' => Category::all()***
+
+- Cabe mencionar que antes de realizar el paso anterior, debiamos implementar una 'libreria', la cual nos ayudaría en el proceso para implementar JavaScript en el dropdown.
+
+> ![text image](../img/imagen67.png)
+
+- Finalmente le dimos un poco de formato al dropdown usando etiquetas de diseño de JavaScript y el resultado final fue así:
+
+>![text image](../img/imagen68.png)
+
+

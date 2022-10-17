@@ -55,3 +55,20 @@ Una vez que sabemos que los datos son válidos, implementamos el método de crea
 
 Debemos recordar que antes de registrar un usuario, debemos ir al modelo de *User* en en los *fillable* debemos implementar los valores que nos hacen falta, en un inicio solo teniamos el nombre, email y contraseña, ahora debemos añadir los atributos que estamos enviando en el request, en este caso ***username***
 o bien para omitir este proceso de agregar info a los *fillable* podemos simplemente cambiar el *fillable* por un *guarded*, en caso de que necesitemos más datos.
+
+--------------------------------------------------------
+
+## **Segunda parte**
+### Hashing automático de contraseñas con mutadores:
+--------------------------------------------------------
+
+En el capítulo anterior, realizamos un registro de usuarios, pero notamos que la contraseña no se guarda de manera correcta, en este episodio vamos a solucionarlo.
+
+Nos dirigimos al modelo del usuario y creamos una función que reciba por parámetro la contraseña para seguidamente encriptarla.
+
+    public function setPasswordAttribute($password)
+    {
+        $this->attributes['password'] = bcrypt($password);
+    }
+
+de esta manera ya podemos implementar la contraseña encriptada a la base de datos.

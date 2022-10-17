@@ -196,3 +196,12 @@ Función *store*:
             ]);
         }
 
+
+--------------------------------------------------------
+
+## **Sétima parte**
+### Vistazo rápido de Laravel Breeze:
+--------------------------------------------------------
+
+Hacemos un pequeño cambio a la condición del método *store* el throw lo pasamos dentro del if y el session y el return fuera.
+Luego de hacer ese cambio, vemos un poco de la demostración de un nuevo proyecto con Laravel Breeze.

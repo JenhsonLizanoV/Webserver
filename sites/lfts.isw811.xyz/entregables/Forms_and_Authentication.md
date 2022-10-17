@@ -72,3 +72,32 @@ Nos dirigimos al modelo del usuario y creamos una función que reciba por parám
     }
 
 de esta manera ya podemos implementar la contraseña encriptada a la base de datos.
+
+--------------------------------------------------------
+
+## **Tercera parte**
+### Validación fallida y datos de entrada antiguos:
+--------------------------------------------------------
+
+En este capítulo vamos a solucionar algunos errores de validación.
+
+Vamos a implementar mensajes cuando haya un error en las validaciones de los input, es decir, si incumplimos el mínimo o máximo de la extensión establecida, que nos muestre un mensaje de error de validación.
+
+Luego, que pasa si tenemos un registro en base de datos y duplicamos esa información, pues nos dará un error de **SQL**, para solucionarlo vamos a establecer los atributos como *unique* y vamos a darle algunos argumentos como por ejemplo la tabla y la columna, ejemplo:
+
+    $attributes = request()->validate([
+            'name' => 'required|max:255',
+            'username' => 'required|min:3|max:255|unique:users,username',
+            'email' => 'required|email|max:255',
+            'password' => 'required|min:8|max:255',
+        ]);
+
+de igual manera va a pasar si no validamos el email, ya que en la base de datos este es un email único, por ende, también debemos validar la situación en caso de que este se repita, entonces el código quedatía tal que así:
+
+    $attributes = request()->validate([
+            'name' => 'required|max:255',
+            'username' => 'required|min:3|max:255|unique:users,username',
+            'email' => 'required|email|max:255|unique:users,email',
+            'password' => 'required|min:8|max:255',
+        ]);
+

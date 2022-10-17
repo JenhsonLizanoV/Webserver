@@ -73,3 +73,28 @@ luego nos dirigimos al controlador de los posts, en el request agregamos *author
 > **Importante:** Podemos combinar los métodos de filtrado, es decir, podemos clickear en un autor, luego dentro de eso podemos realizar búsqueda de palabras, etc...
 
 Como ya sabemos, al agregar: ***"/?author={{ $post->author->username }}"*** a la ruta de cada pantalla podremos eliminar la ruta que utilizabamos para eso.
+
+--------------------------------------------------------
+
+## **Cuarta parte**
+### Combinar categorías y consultas de búsqueda:
+--------------------------------------------------------
+
+En el *action* del *_header.blade.php* vamos a obtener tambien lo que pongamos en el text field de buscar para poder hacer un match entre la categoría y la búsqueda.
+> ***action="/?{{ request()->getQueryString() }}"***
+Una vez hecho esto, no vamos a tener ningún resultado, porque tiene que ser aplicado en cada form.
+
+Otra opción es crear un *input* de tipo *hidden* para que se almacene el resultado de la búsqueda que vamos a realizar junto al filtro de la categoría.
+
+Luego de realizar de manera correcta el seleccionar una categoría y buscar una palabra sin que la categoria se resetee, vamos hacer el mismo procedimiento pero esta vez vamos a hacerlo que cuando busquemos una palabra podamos seleccionar una categoría sin perder la palabra que estabamos buscando.
+
+Nos dirigimos al *category-dropdown.blade.php* y buscamos nuestro item de dropdown, una vez estando ahí, nos dirigimos a la ruta que está en *x-dropdown-item* y a la ruta del *href* le asignamos lo siguiente:
+
+>***"/?category={{ $category->slug }}&{{ http_build_query(request()->except('category')) }}"***
+
+de esta manera nos aseguramos de poder buscar una palabra y consiguientemente buscar una categoría sin perder la palabra que estabamos buscando.
+
+Si todo va bien se debería de mostrar algo así:
+
+>![text image](../img/imagen71.png)
+

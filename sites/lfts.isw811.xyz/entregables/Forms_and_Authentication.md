@@ -101,3 +101,35 @@ de igual manera va a pasar si no validamos el email, ya que en la base de datos 
             'password' => 'required|min:8|max:255',
         ]);
 
+--------------------------------------------------------
+
+## **Cuarta parte**
+### Mostrar un mensaje flash de éxito:
+--------------------------------------------------------
+
+En este episodio vamos a mostrar un mensaje flash de éxito cuando logramos registrarnos.
+
+Nos dirigimos al controlador del registro e implementamos lo siguiente:
+
+>***session()->flash('success', 'Your account has been created.')***
+
+luego nos dirigimos a nuestro *layout.blade.php* y al final creamos una condición de que si la *session()* contiene la key word *'success'*, entonces que muestre en mensaje 'Your account has been created', ejemplo:
+
+    @if (session()->has('session'))
+    <div class="fixed bg-blue-500 text-white py-2 px-4 rounded-xl bottom-3 right-3 text-sm">
+        <p>{{ session('success') }}</p>
+    </div>
+
+y así tendremos un mensaje flash desplegado en nuestra pantalla con el mansaje 'Your account has been created'.
+
+Vamos a modificar un poco el código, vamos a establecerle un timer al mensaje que se muestra en la pantalla simplemente hacemos lo siguiente:
+
+        @if (session()->has('session'))
+            <div x-data="{ show: true }">
+                x-init="setTimeout(() => show = false, 4000)"
+                x-show="show"
+                class="fixed bg-blue-500 text-white py-2 px-4 rounded-xl bottom-3 right-3 text-sm">
+                <p>{{ session('success') }}</p>
+            </div>
+
+Todo esto lo vamos a establecer en un componente aparte, para no tener tanta información dentro del layout y también para mantener las buenas prácticas.

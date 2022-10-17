@@ -133,3 +133,28 @@ Vamos a modificar un poco el código, vamos a establecerle un timer al mensaje q
             </div>
 
 Todo esto lo vamos a establecer en un componente aparte, para no tener tanta información dentro del layout y también para mantener las buenas prácticas.
+
+--------------------------------------------------------
+
+## **Quinta parte**
+### Login y Logout:
+--------------------------------------------------------
+
+Vamos a implementar un login y logout dentro de nuestro proyecto.
+
+Vamos a ir a nuestra página de *layout* y vamos a cambiar el *home page* por *Register* y la ruta será */register*.
+Nos vamos al controlador de registros y vamos a hacer que el usuario que creamos esté guardado en la session que acabamos de hacer después de registrarnos, hacemos lo siguiente:
+
+>***auth()->login($user)***
+
+Una vez registrados y estando en la página principal no tendría sentido que podamos registrarnos de nuevo, entonces vamos a ir a las rutas y establecemos lo siguiente:
+
+>***Route::get('register', [RegisterController::class, 'create'])->middleware('guest');***
+
+>***Route::post('register', [RegisterController::class, 'store'])->middleware('guest');***
+
+hacemos una condición en el *layout* de que si somos *'guest'* entonces que no muestre la opción de *register*
+
+Vamos al *Providers* en *RouteServiceProvider* en *public const HOME* cambiamos el */home* por *"/ "*
+
+creamos un botón de *log out* en el *layout* y le establecemos una ruta y vamos a construir un controlador para el *log out* y todo el mismo procedimiento para el *log in*

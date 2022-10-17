@@ -98,3 +98,27 @@ Si todo va bien se debería de mostrar algo así:
 
 >![text image](../img/imagen71.png)
 
+--------------------------------------------------------
+
+## **Quinta parte**
+### Arreglar un error de consulta elocuente confuso:
+--------------------------------------------------------
+
+En este episodio, vamos a solucionar un pequeño bug que encontraremos en nuestra app, el bug es que efectivamente el sistema busca por categoría y tambien por palabras y visceversa, pero si scrolleamos hacia abajo vamos a ver que **encuentra la palabra clave pero con una categoría distinta**,
+entonces vamos a solucionarlo.
+
+Bien, para solucionar este problema, nos vamos a nuestro gestor de base de datos o bien el clockwork que instalamos en versiones anteriores, en cualquiera de estos 2 sitios podremos ver la consulta que estamos realizando, el problema radica en que al momento de hacer la consulta se ve algo así:
+
+>![text image](../img/imagen72.png)
+
+como podemos observar en la imagen, el error está en la clausula *AND EXIST*, esa clausula debemos colocarla fuera del *WHERE* que vemos encerrado en la imagen, de esta manera solucionaremos el error o pequeño bug.
+
+En el código nos dirigimos al modelo *Post*, en el *scopeFilter* colocamos lo siguiente:
+
+***$query->when($filters['search'] ?? false, fn ($query, $search) =>
+        $query->where(fn ($query) =>
+        $query->where('title', 'like', '%' . request('search') . '%')
+            ->orWhere('body', 'like', '%' . request('search') . '%')));***
+
+y listo, bug solucionado.
+

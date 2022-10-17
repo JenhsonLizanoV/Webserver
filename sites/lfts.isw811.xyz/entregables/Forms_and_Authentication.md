@@ -158,3 +158,41 @@ hacemos una condición en el *layout* de que si somos *'guest'* entonces que no 
 Vamos al *Providers* en *RouteServiceProvider* en *public const HOME* cambiamos el */home* por *"/ "*
 
 creamos un botón de *log out* en el *layout* y le establecemos una ruta y vamos a construir un controlador para el *log out* y todo el mismo procedimiento para el *log in*
+
+--------------------------------------------------------
+
+## **Sexta parte**
+### Construyendo la página de Log In:
+--------------------------------------------------------
+
+Vamos a crear primeramente la ruta para el *login*
+
+>***Route::post('login', [SessionsController::class, 'create'])->middleware('guest');***
+
+Luego vamos a implementar el mismo formato de la pagina de *register* en la página de *login* y solo usaremos el email y la contraseña.
+
+Añadimos los mismos procedimientos que hicimos al crear un registro, establecemos rutas, creamos una función store para el inicio de sesión, validamos emails y contraseñas y listo.
+
+Rutas para el login:
+
+>***Route::post('login', [SessionsController::class, 'store'])->middleware('guest');***
+
+>***Route::get('login', [SessionsController::class, 'create'])->middleware('guest');***
+
+Función *store*:
+
+        public function store(){
+            $attributes = request()->validate([
+                'email' => 'required|email',
+                'password' => 'required',
+            ]);
+
+            if(auth()->attempt($attributes)){
+                 redirect("/")->with('success', 'Welcome Back!');
+            }
+
+            throw ValidationException::withMessages([
+                'email' => 'You provided credentials could not be verified'
+            ]);
+        }
+

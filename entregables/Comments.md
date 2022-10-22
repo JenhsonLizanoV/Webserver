@@ -234,3 +234,12 @@ En la imagen del avatar colocamos lo siguiente:
     
 para obtener una imagen distinta de avatar por comentario y listo.
 
+--------------------------------------------------------
+
+## **Cuarta parte**
+### Diseña el formulario de comentarios:
+--------------------------------------------------------
+
+En este capítulo, solamente vamos a realizar una sección de comentarios para los usuarios. y modificamos algunos margenes de diseño de los comentarios del video anterior.
+
+![text image](../img/imagen74.png)

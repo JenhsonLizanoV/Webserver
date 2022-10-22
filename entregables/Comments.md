@@ -170,3 +170,67 @@ Una manera más corta de hacer las llaves foráneas es así:
 Hacemos lo mismo para ***user_id***
 
 Luego lo mismo para los *posts*
+
+--------------------------------------------------------
+
+## **Tercera parte**
+### Hacer una sección dinámica de comentarios:
+--------------------------------------------------------
+
+Ahora nos dirigimos a los factoies de nuestra app y buscamos el de comentarios y agregamos el "cuerpo" del comentario e implementamos los *id* de los *posts* y los de los usuarios:
+
+    public function definition()
+    {
+        return [
+            'post_id' => Post::factory(),
+            'user_id' => User::factory(),
+            'body' => $this->faker->paragraph()
+        ];
+    }
+
+Luego de haber realizado la definición de variables (paso anterior) vamos a hacer un ***"php artisan tinker"*** y creamos los comentarios, ***"App\Models\Comment::factory()->create();"***
+
+Ahora debemos ir al modelo de los *posts* y creamos una función que establezca la relación entre el post y el comentario. 
+
+Si no recordamos como hacer esta relación pasate por [DATABASES](../databases.md) y ahí vamos a encontrar como ralizar este tipo de relaciones.
+
+En todo caso solo agregamos:
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
+
+luego con el comando **ctrl+click** sobre *Comment* nos vamos al modelo de comentarios y acá hacemos lo contrario para *author* y *posts*, tal que así:
+
+    class Comment extends Model
+    {
+        use HasFactory;
+
+        public function post(){
+            return $this->belongsTo(Post::class);
+        }
+
+        public function author(){
+            return $this->belongsTo(User::class, 'user_id');
+        }
+    }
+
+Entramos de nuevo al *tinker* y buscamos el primer comentario, luego buscamos si tiene las relaciones y efectivamente, tiene relaciones con los *authors* y los *posts*.
+
+Nos vamos a *show.blade.php* y encerramos en un *foreach* el comentario:
+
+    @foreach($comments as $comment)    
+        <x-post-comment :comment="$comment" />
+    @endforeach
+
+ahora hacemos nuestros comentarios dinámicos, ahora creamos 10 comentarios para el último post:
+
+> ***App\models\Comment::factory(10)->create(['post_id'=> 7]);***
+
+En la imagen del avatar colocamos lo siguiente:
+
+      <img src="https://i.pravatar.cc/60?u={{ $comment->id }}" alt="" width="60" height="60" class="rounded-xl">
+    
+para obtener una imagen distinta de avatar por comentario y listo.
+

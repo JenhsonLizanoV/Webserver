@@ -90,3 +90,83 @@ Al implementar el código anterior, podemos observer que este al momento de ser 
 
 y seguimos dandole diseño a este comentario que hemos creado.
 Una vez que tenemos todo el artículo completo, lo vamos a cortar y lo vamos a colocar en un archivo aparte para que este pueda ser usado en otros sitios de la app, tal como hicimos con los posts, etc... y una vez hecho esto, podremos ver nuestro comentario recién creado en los diferentes *posts* de nuestra app.
+
+--------------------------------------------------------
+
+## **Segunda parte**
+### Coherencia de tabla y restricciones de clave externa:
+--------------------------------------------------------
+
+Lo que haremos ahora será crear un modelo exclusivo para los comentarios con el código que ya hemos usado anteriormente:
+
+> ***php artisan make:model Comment -mfc***
+
+>**"-mfc"** *significa que vamos a hacer una migración, un factory y un controlador asociado* al mismo tiempo
+
+Luego de haber realizado el paso anterior, nos vamos a la migración recién creada y vamos a agregar algunos campos a la tabla de *commets* tales como las llaves foráneas de los *posts* y de los *users* y por supuesto, debemos agragar un *body* el cual es el que va a almacenar el comentario que vamos a mostrar en el navegador, ejemplo:
+
+    public function up()
+        {
+            Schema::create('comments', function (Blueprint $table) {
+                $table->id();
+                $table->unsignedBigInteger('post_id');
+                $table->unsignedBigInteger('user_id');
+                $table->text('body');
+                $table->timestamps();
+            });
+        }
+
+y hacemos un:
+
+>**php artisan migrate**
+
+para aplicar los cambios.
+
+En caso de no contar con la app que usa el guía en sus videos, como es mi caso, vamos a ingresar datos a nuestra tabla *comments* desde la consola, para esto, vamos a implementar el siguiente código en la consola:
+
+> ***INSERT INTO table_name (column_1, column_2, column_3, ...) VALUES ('value_1', 'value_2', 'value_3', ...);***
+
+En caso de que un post sea eliminado y no hayamos programado esta situación, vamos a obtener un error y nuestra app se va a caer, por eso debemos hacer en la migración un *$table-foreign* para evitar estos problemas, debemos programar de que en caso de que un post sea eliminado, se eliminen tambien las referencias que este tenía.
+
+Nuestra migración quedaría así:
+
+    public function up()
+        {
+            Schema::create('comments', function (Blueprint $table) {
+                $table->id();
+                $table->unsignedBigInteger('post_id');
+                $table->unsignedBigInteger('user_id');
+                $table->text('body');
+                $table->timestamps();
+
+                $table->foreign('post_id')->references('id')->on('posts')->cascadeOnDelete();
+            });
+        }
+
+Hacemos un *rollback* a la migración y la volvemos a correr para que se apliquen los cambios.
+
+Para comprobar que lo que acabamos de hacer funciona, vamos a hacer un delete del *posts* al que estamos haciendo referencia con el *comment*, es decir, si en la tabla *comments* en la columna *post_id* tenemos el "1" entonces iremos a hacer un *delete* de ese post, ejemplo:
+
+- **Para insertar en *comments***
+
+    > ***INSERT INTO comments (post_id, user_id, body, created_at, updated_at) VALUES ('1', '1', 'Hello World', NOW(), NOW());***
+
+- **Para eliminar un post**
+
+    > ***DELETE FROM posts WHERE id = 1;***
+
+- **Hacemos un select de los comments**
+
+    > ***SELECT * FROM comments***
+
+y listo, comprobamos que el código funciona:
+
+![text image](../img/imagen73.png)
+
+Una manera más corta de hacer las llaves foráneas es así:
+
+>***$table->foreignId('post_id')->constrained()->cascadeOnDelete();***
+
+Hacemos lo mismo para ***user_id***
+
+Luego lo mismo para los *posts*

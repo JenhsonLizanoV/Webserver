@@ -243,3 +243,51 @@ para obtener una imagen distinta de avatar por comentario y listo.
 En este capítulo, solamente vamos a realizar una sección de comentarios para los usuarios. y modificamos algunos margenes de diseño de los comentarios del video anterior.
 
 ![text image](../img/imagen74.png)
+
+--------------------------------------------------------
+
+## **Cuarta parte**
+### Activar el formulario de comentarios:
+--------------------------------------------------------
+
+Primeramente vamos a crear una ruta que nos permita controlar a donde nos vamos a dirigir o que vamos a hacer cuando presionemos el botón *post* dentro del form que creamos en el episodio anterior.
+Para ayudarnos a estar ubicados de lo que vamos a hacer y en que parte de nuestro proyecto estamos trabajando, vamos a crear la ruta de manera que nosotros como desarrolladores sepamos donde estamos, ejemplo, la ruta que vamos a implementar es la siguiente:
+
+>***Route::post('posts/{post:slug}/comments', [PostCommentController::class, 'addComment']);***
+
+como se puede observar en el pseudocódigo anterior, vamos a crear un nuevo controlador, sincillamente podemos crear el método *addComment* en el controlador de *post* pero al ser un item distinto a un *post* lo recomendable es crear un controlador para sí mismo. Por ende vamos a crear el controlador desde la consola con el comando que ya conocemos:
+
+> ***php artisan make:controller PostCommentController***
+
+y agregamos el método de *store*. luego de crear el método, actualizaremos el *action* del form para agregar los comentarios.
+
+En el action vamos a colocar algo como esto:
+
+> ***"/posts/{{ $post->slug }}/comments"***
+
+y el método que implementamos es algo así:
+
+    public function store(Post $post){
+        
+        request()->validate([
+            'body' => 'required'
+        ]);
+
+        $post->comments()->create([
+            'user_id' => request()->user()->id,
+            'body' => request('body'),
+        ]);
+
+        return back();
+    }
+
+debemos recordar que al hacer acciones como estas, debemos habilitar los campos que vamos a utilizar, para eso nos vamos al modelo del que vamos a solicitar datos y hacemos un *protected* o un *guarded*, en este caso vamos a necesitar hacer un *guarded* en el modelo *Comment*.
+
+Al realizar todos los pasos mencionado podremos ver que el proceso se concretó correctamente porque vemos algo tal que así:
+
+![text image](../img/imagen75.png)
+
+Un método más sencillo para solucionar el problema de tener que agregar siempre el *protected $guarded = []* es irnos a los *providers* de nuestra app y en *AppServiceProvider.php* vamos a obtener todos los modelos del proyecto y le vamos a establecer un *unguard*, recordemos que todos los modelos que generamos estan extendiendo o heredando de una clase padre, entonces vamos a tomar esa clase padre y le vamos a establecer el *unguard*.
+
+Una vez realizado con éxito el funcionamiento de los comentarios, vamos a hacer que ese formulario de comentarios no se muestre mientras no entremos en nuestra cuenta, es decir, debemos loguearnos o registrarnos para poder hacer un comentario.
+

@@ -291,3 +291,10 @@ Un método más sencillo para solucionar el problema de tener que agregar siempr
 
 Una vez realizado con éxito el funcionamiento de los comentarios, vamos a hacer que ese formulario de comentarios no se muestre mientras no entremos en nuestra cuenta, es decir, debemos loguearnos o registrarnos para poder hacer un comentario.
 
+--------------------------------------------------------
+
+## **Quinta parte**
+### Un poco de limpieza del capítulo ligero:
+--------------------------------------------------------
+
+En este capítulo simplemente hacemos una limpieza de código y validaciones para que al momento de postear un comentario y dar en el botón este valide si está vacío o no.

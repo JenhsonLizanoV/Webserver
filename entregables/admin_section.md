@@ -79,3 +79,18 @@ Creamos un componente que almacene todas las configuraciones de publicar un nuev
 
 Con los blades de form, vamos a mejorar tambien la pantalla de registro y de login, simplemente vamos a utilizar el formato de del componente forms en estas pantallas para optimizar aun mas nuestro cogido.
 
+--------------------------------------------------------
+
+## **Sexta parte**
+### Crear formulario de editar y eliminar un Post:
+--------------------------------------------------------
+
+Vamos a crear un controlador para que los administradores puedan hacer y deshacer con los post, vamos a implementar una ruta que va a ser controlada por un AdminPostController, este controlador va a ser el encargado de eliminar o editar los atributos o mas bien la info que tienen los atributos de los posts, dichos sean titulos, cuerpos, categorias, etc...
+
+Creamos el controlador como lo hemos hecho anteriormente utilizando artisan.
+
+Ahora todos los posts los vamos a visualizar con la opcion de editar o eliminar, vamos a ver sus estados "si están publicados".
+
+Implementamos la ruta para la cual vamos a necesitar el controlador que acabamos de crear con el metodo edit, de esta manera procederemos a crear el form que cargue los datos editables del post dentro de los campos del formulario y seguidamente procederemos a crear la logica que nos permita cambiar lo que deseemos.
+
+Claramente tambien deberemos implementar la logica para el metodo de eliminar un post, al ser un delete, este solo necesita obtener el id del post al cual está haciendo focus el puntero y proceder a obtenerlo para eliminarlo.

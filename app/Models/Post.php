@@ -9,11 +9,8 @@ class Post extends Model
 {
     use HasFactory;
 
-<<<<<<< HEAD
-    protected $guarded = [];
 
-=======
->>>>>>> 26fe21fcfc591448412209005741297683ae6a55
+    protected $guarded = [];
 
     protected $with = ['category','author'];
 
@@ -39,14 +36,10 @@ class Post extends Model
       );
     }
 
-<<<<<<< HEAD
-=======
     public function comments()
     {
         return $this->hasMany(Comment::class);
     }
-
->>>>>>> 26fe21fcfc591448412209005741297683ae6a55
     public function category()
     {
         return $this->belongsTo(Category::class);

@@ -36,3 +36,19 @@ Creamos los campos que necesitamos para realizar la publicacion, titulos, excerp
 Creamos la respectiva ruta para el post de los campos de texto del form  para almacenar esos datos.
 
 Seguidamente se hacen las validaciones de los campos de texto para crear un nuevo post.
+
+--------------------------------------------------------
+
+## **Tercera parte**
+### Validar y almacenar miniaturas de publicaciones:
+--------------------------------------------------------
+
+Vamos a agregar un campo nuevo al formulario el cual va a almacenar la imagen de la miniatura de los post nuevos que hagamos.
+
+Realizamos un ***php artisan storage:link*** para crear nuestro directorio dentro de la carpeta public donde se van a guardar las miniaturas.
+
+Nos dirigimos a la migración de los posts y vamos a agregar el campo para las miniaturas.
+
+Hacemos un refresh de las migraciones ***php artisan migrate:fresh --seed*** y claramente debemos agregar el campo a las validaciones de nuestro controlador.
+
+Se aplican los cambios con un asset a todos las partes del proyecto que implican miniaturas y listo, ya tenemos miniatutas dinamicas.

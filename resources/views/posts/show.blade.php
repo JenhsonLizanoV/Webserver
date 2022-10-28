@@ -47,6 +47,17 @@
                         {!! $post->body !!}
                     </div>
                 </div>
+<<<<<<< HEAD
+=======
+                <section class="col-span-8 col-start-5 mt-10 space-y-6">
+
+                    @include('posts._add-comment-form')
+
+                    @foreach($post->comments as $comment)
+                    <x-post-comment :comment="$comment" />
+                    @endforeach
+                </section>
+>>>>>>> 26fe21fcfc591448412209005741297683ae6a55
             </article>
         </main>
     </section>

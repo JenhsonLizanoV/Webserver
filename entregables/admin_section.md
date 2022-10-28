@@ -52,3 +52,16 @@ Nos dirigimos a la migración de los posts y vamos a agregar el campo para las m
 Hacemos un refresh de las migraciones ***php artisan migrate:fresh --seed*** y claramente debemos agregar el campo a las validaciones de nuestro controlador.
 
 Se aplican los cambios con un asset a todos las partes del proyecto que implican miniaturas y listo, ya tenemos miniatutas dinamicas.
+
+--------------------------------------------------------
+
+## **Cuarta parte**
+### Extraer componentes de hoja de forma específica:
+--------------------------------------------------------
+
+En este capitulo solamente vamos a implementar los campos de manera generica por decirlo de alguna manera, es decir, vamos a crear un blade por cada campo que necesitemos replicar en nuestra app, siendo asi el ejemplo de los inputs, vamos a establecer un blade para los inputs para limpiar aun mas nuestro codigo y se vea mas ordenado y eficiente, tambien se crea otro blade para los text area, etc...
+
+Vamos a crear un blade por cada cosa que necesitemos duplicar en nuestro codigo.
+
+Todo esto lo vamos a almacenar en un carpeta form dentro de components.
+

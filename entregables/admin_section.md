@@ -94,3 +94,13 @@ Ahora todos los posts los vamos a visualizar con la opcion de editar o eliminar,
 Implementamos la ruta para la cual vamos a necesitar el controlador que acabamos de crear con el metodo edit, de esta manera procederemos a crear el form que cargue los datos editables del post dentro de los campos del formulario y seguidamente procederemos a crear la logica que nos permita cambiar lo que deseemos.
 
 Claramente tambien deberemos implementar la logica para el metodo de eliminar un post, al ser un delete, este solo necesita obtener el id del post al cual está haciendo focus el puntero y proceder a obtenerlo para eliminarlo.
+
+--------------------------------------------------------
+
+## **Sétima parte**
+### Lógica de validación de grupos y tiendas:
+--------------------------------------------------------
+
+En este capitulo simplemente se harán validaciones de la logica de algunos puntos específicos, tal sea el caso de los posts, para editar y almacenar se necesita lo mismo, lo unico que cambia es el slug del update ignora el id del post, entonces debemos irnos e implementar una variable a la cual se le va a asignar un nuevo post en el metodo store y en la imagen validamos si el post ya existe, si exite entonces que cargue la imagen, sino que el campo de la miniatura sea requerido.
+
+Al tener el update y el store identicos, podemos hacer un solo metodo el cual valide si el post va a ser almacenado o va a ser editado para eso creamos un array dentro del metodo que valida los campos y establecemos que si es un nuevo post que lo guarde o le haga un *store* sino que actualice los datos en la base de datos.

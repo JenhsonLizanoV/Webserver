@@ -58,3 +58,13 @@ De esta manera podemos ir obteniendo la API para nuestro proyecto, tambien podem
 
 luego de que agregamos un nuevo miembro, nos dirigimos a la [pagina de mailchimp](https://mailchimp.com/guesswork/?gclid=Cj0KCQjw--2aBhD5ARIsALiRlwC9W0yXfCI5Y1eKPWa3CgIEVa9yszrzkLDGjUfbTSU4Ka247EZhKSMaAoDXEALw_wcB&gclsrc=aw.ds) y nos dirigimos a *contacts* y tendremos el que hemos agregado.
 
+--------------------------------------------------------
+
+## **Segunda parte**
+### Hacer que el formulario de boletín funcione:
+--------------------------------------------------------
+
+Vamos a hacer algunos cambios en la ruta que establecimos en el capitulo anterior, vamos a establecerla de tal manera que podamos hacer post de los formularios, es decir, vamos a establecer el *Route* de tipo *post* y vamos a hacer un *request* de los campos que necesitamos, en este caso vamos a utilizar el *email address*, recordemos que siempre hay que hacerle un *required* y validar que sea de tipo *email* y listo, ya podemos suscribirnos con nuestro correo. 
+
+Al validar que el correo sea 'real' vamos a obtener un problema y el software se va a caer, para arreglar esto, podemos implementar un try-catch dentro de nuestra ruta para que no suceda esto.
+

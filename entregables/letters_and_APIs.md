@@ -110,3 +110,5 @@ En el AppServicesProvider en la funcion register, colocamos lo siguiente:
  Vamos a renombrar nuestra clase newsletter y vamos a crear otra clase llamada ConvertKitNewsletter y vamos a crear una interfaz llamada newsletter la cual va a recibir por parametros del email  y una lista luego en la clase que renombramos, va a implementar esta interfaz al igual que el convertKitNewsletter.
 
 En el proveedor de servicios de nuestra app, vamos a extender de la interfaz Newsletter y listo, todo funciona perfecto.
+
+[Admin Section](../entregables/admin_section.md)

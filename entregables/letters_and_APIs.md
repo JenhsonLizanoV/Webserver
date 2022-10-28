@@ -68,3 +68,22 @@ Vamos a hacer algunos cambios en la ruta que establecimos en el capitulo anterio
 
 Al validar que el correo sea 'real' vamos a obtener un problema y el software se va a caer, para arreglar esto, podemos implementar un try-catch dentro de nuestra ruta para que no suceda esto.
 
+--------------------------------------------------------
+
+## **Tercera parte**
+### Extraer un servicio de boletín:
+--------------------------------------------------------
+
+Para este episodio, vamos a dirigirnos app->services y ahi creamos un archivo .php para implementar el metodo que cumple con la creacion del newsletter, creamos una funcion y enviamos por parametros una variable tipo string.
+
+Tomamos nuestro codigo de mailchimp y lo insertamos en la funcion que acabamos de crear anteriormente, luego la importamos y la ingresamos dentro de nuestro try en el archivo de rutas.
+
+Dentro de la funcion de la ruta vamos a declarar una variable de tipo Newsletters y le seteamos el metodo suscribe y le enviamos por parametro un request del email que tenemos en el form.
+
+En cofig->services en 'mailchimp' vamos implementar una lista donde vamos a tener los suscribers de la app y en .env vamos a setear la lista de suscribers con el id de un suscriber.
+
+Luego dentro de la funcion de suscribe obtenemos los datos que hay en el config y los seteamos en una lista.
+
+Seguidamente creamos una funcion cliente el cual va a retornar nuestra clave api y el servidor que usamos.
+
+Con todo lo que hemos arreglado hasta ahora podremos acortar nuestra ruta y normalizarla a como tenemos las demas rutas, solo que esta va a extender de nuestra controlador newsletter, el cual vamos a proceder a crear con una funcion para invocar nuestra funcion y ahi sea donde se realice la validacion con el try-catch.

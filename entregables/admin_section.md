@@ -104,3 +104,27 @@ Claramente tambien deberemos implementar la logica para el metodo de eliminar un
 En este capitulo simplemente se harán validaciones de la logica de algunos puntos específicos, tal sea el caso de los posts, para editar y almacenar se necesita lo mismo, lo unico que cambia es el slug del update ignora el id del post, entonces debemos irnos e implementar una variable a la cual se le va a asignar un nuevo post en el metodo store y en la imagen validamos si el post ya existe, si exite entonces que cargue la imagen, sino que el campo de la miniatura sea requerido.
 
 Al tener el update y el store identicos, podemos hacer un solo metodo el cual valide si el post va a ser almacenado o va a ser editado para eso creamos un array dentro del metodo que valida los campos y establecemos que si es un nuevo post que lo guarde o le haga un *store* sino que actualice los datos en la base de datos.
+
+--------------------------------------------------------
+
+## **Octava parte**
+### Todo sobre autorizaciones:
+--------------------------------------------------------
+
+Para aurotizar un usuario por default, podemos ir al proveedor de servicios de la app, en la funcion boot creamos un gate y definimos que el username del usuario sea el nuestro por defecto y en el Post hacemos un *gate::allows* para que permita al admin por defecto.
+
+Seguidamente validamos si el usuario no es admin entonces no deben mostrarse las opciones de dashboard ni de new post, solo mostrará el log out.
+
+Por ultimo, podemos agrupar el middleware para no tener que repetir la misma linea todoas las veces que se necesite, podremos hacer algo así:
+
+    Route::middleware('can:admin')->group(function(){
+        'Rutas que involucran un middleware de administrador'.
+    });
+
+Por último para no replicar el mismo procedimiento de las rutas, dentro del middleware podemos hacer algo tal que así:
+
+    Route::middleware('can:admin')->group(function(){
+        Route::resource('admin/post', AdminPostController::class)->except('show');
+    });
+
+el codigo anterior realiza las mismas funciones que cuando las teniamos separadas por partes, solo que esta vez está más ordenado y optimzado.

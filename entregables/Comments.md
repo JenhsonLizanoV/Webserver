@@ -299,4 +299,4 @@ Una vez realizado con éxito el funcionamiento de los comentarios, vamos a hacer
 
 En este capítulo simplemente hacemos una limpieza de código y validaciones para que al momento de postear un comentario y dar en el botón este valide si está vacío o no.
 
-[Newsletters and APIs](../entregables/letters%20and%20APIs.md.md)
+[Newsletters and APIs](../entregables/letters%20and%20APIs.md)

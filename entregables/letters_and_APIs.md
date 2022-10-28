@@ -87,3 +87,26 @@ Luego dentro de la funcion de suscribe obtenemos los datos que hay en el config 
 Seguidamente creamos una funcion cliente el cual va a retornar nuestra clave api y el servidor que usamos.
 
 Con todo lo que hemos arreglado hasta ahora podremos acortar nuestra ruta y normalizarla a como tenemos las demas rutas, solo que esta va a extender de nuestra controlador newsletter, el cual vamos a proceder a crear con una funcion para invocar nuestra funcion y ahi sea donde se realice la validacion con el try-catch.
+
+--------------------------------------------------------
+
+## **Cuarta parte**
+### Cofres de juguetes y contratos:
+--------------------------------------------------------
+
+Ok, vamos a implementar un costructor en el newsletter.php y por parametro pasamos el una variable de tipo ApiClient.
+
+En el AppServicesProvider en la funcion register, colocamos lo siguiente:
+
+      app()->bind(Newsletter::class, function(){
+        return new Newsletter(
+            new ApiClient(),
+            'foobar'
+        );
+      });
+ 
+ todo con el fin de simular una caja de juguetes, si lo quiero utilizar abro la caja e invoco el juguete que quiero, de lo contrario guardo el juguete y cierro la caja, entonces dentro de nuestro codigo anterior, colocamos el algoritmo  que me controla el ApiClient y vamos a retornar ese cliente y claramente vamos a eliminar el codigo que teniamos en nuestra clase newsletter, el que estaba controlando al cliente.
+
+ Vamos a renombrar nuestra clase newsletter y vamos a crear otra clase llamada ConvertKitNewsletter y vamos a crear una interfaz llamada newsletter la cual va a recibir por parametros del email  y una lista luego en la clase que renombramos, va a implementar esta interfaz al igual que el convertKitNewsletter.
+
+En el proveedor de servicios de nuestra app, vamos a extender de la interfaz Newsletter y listo, todo funciona perfecto.

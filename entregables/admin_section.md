@@ -65,3 +65,17 @@ Vamos a crear un blade por cada cosa que necesitemos duplicar en nuestro codigo.
 
 Todo esto lo vamos a almacenar en un carpeta form dentro de components.
 
+--------------------------------------------------------
+
+## **Quinta parte**
+### Ampliar el diseño de administración:
+--------------------------------------------------------
+
+En este capitulo, vamos a mejorar el diseño de admin, para eso vamos a donde mostramos el nombre de la persona logueada en ese momento y le hacemos un dropdown para que este despliegue el menu del admin con las acciones que puede realizar este, en este caso seria crear un nuevo post y le damos algunos estilos esteticos al dropdown, tambien vamos a agregar una opcion dashboard que nos va a permitir volver a nuestra pagina de post.
+
+Tambien vamos a ingresar una opcion la cual permita salir de la pagina, es decir, un log out, para el log out tenemos que darle un formato ditinto y vamos a hacer una opcion de prevent la cual nos permita elegir si estamos seguros de que queremos cerrar sesion.
+
+Creamos un componente que almacene todas las configuraciones de publicar un nuevo post, es decir, un blade que almacene todo lo que ya teniamos para hacer un nuevo post para simplemente evitar tener que repetir siempre el mismo codigo.
+
+Con los blades de form, vamos a mejorar tambien la pantalla de registro y de login, simplemente vamos a utilizar el formato de del componente forms en estas pantallas para optimizar aun mas nuestro cogido.
+
